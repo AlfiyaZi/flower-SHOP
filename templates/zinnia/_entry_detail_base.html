@@ -100,14 +100,17 @@
 
             {% if object.image|is_portrait %}
                 <div class="portrait">
+
                 {% thumbnail object.image "480x480" crop="center"  as im %}
-                        <img src="{{ im.url }}" class="img-thumbnail img-responsive">
+                        <a href="{{ image.original.url }}" rel="lightbox_{{ product.upc|default:"-" }}" class="sub-image">
+                        <img src="{{ im.url }}" class="img-thumbnail img-responsive"></a>
                  {% endthumbnail %}
                  </div>
                 {% else %}
                 <div class="landscape">
              {% thumbnail object.image "500" crop="bottom"  as im %}
-        <img src="{{ im.url }}" class="img-thumbnail img-responsive">
+                     <a href="{{ image.original.url }}" rel="lightbox_{{ product.upc|default:"-" }}" class="sub-image">
+        <img src="{{ im.url }}" class="img-thumbnail img-responsive"></a>
     {% endthumbnail %}
     </div>
 
